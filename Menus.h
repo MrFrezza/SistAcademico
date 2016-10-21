@@ -8,22 +8,21 @@ using namespace std;
 class Menus{
 	public:
 		Menus();
-		string getMenuAluno();
-		string getMenuDisci();
-		string getMenuMatri();
-		string getMenuMenus();
+		string *getMenuAluno();
+		string *getMenuDisci();
+		string *getMenuMatri();
+		string *getMenuMenus();
 		
-		setMenuAluno(string);
-		setMenuDisci(string);
-		setMenuMatri(string);
-		setMenuMenus(string);
+		void setMenuAluno();
+		void setMenuDisci();
+		void setMenuMatri();
+		void setMenuMenus();
 		
 	private:
-		string menuAluno[4];
+		string menuAluno[5];
 		string menuDisci[4];
 		string menuMatri[4];
 		string menuMenus[4];
-	
 };
 
 #endif 
