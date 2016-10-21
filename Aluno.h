@@ -1,3 +1,6 @@
+#ifndef ALUNO_H
+#define ALUNO_H
+
 #include "Pessoa.h"
 #include "Disciplina.h"
 
@@ -15,7 +18,7 @@ class Aluno : public Pessoa {
 		void setCurso(string cs);
 		string getCurso();
 		
-		bool insereDisciplina (Disciplina* dptr);
+		bool insereDisciplina (Disciplina* dptr); // ----- OK
 		bool deleteDisciplina (Disciplina* dptr);
 		void deletaMatriculas ();
 		
@@ -24,3 +27,5 @@ class Aluno : public Pessoa {
 		~Aluno();
 	
 };
+
+#endif

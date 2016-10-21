@@ -23,8 +23,8 @@ void Menus::setMenuAluno(){
 void Menus::setMenuDisci(){
 	menuDisci[0] = "1) - Adicionar Disciplina";
 	menuDisci[1] = "2) - Deletar Disciplina";
-	menuDisci[3] = "3) - Listar Disciplinas"; 
-	menuDisci[4] = "4) - Voltar";
+	menuDisci[2] = "3) - Listar Disciplinas"; 
+	menuDisci[3] = "4) - Voltar";
 }
 
 void Menus::setMenuMatri(){

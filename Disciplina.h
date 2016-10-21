@@ -1,4 +1,7 @@
-#inclulde "Aluno.h"
+#ifndef DISCIPLINA_H
+#define DISCIPLINA_H
+
+#include "Aluno.h"
 
 class Aluno;
 
@@ -9,14 +12,14 @@ class Disciplina{
 		Aluno *ad[10];
 	
 	public:
-		Disciplina (string cd, string nd);
+		Disciplina (string cd, string nd);  // ---- OK
 		
-		void setCodDisc(string cd);
-		string getCodDisc();
-		void setNomeDisc(string nd);
-		string getNomeDisc();
+		void setCodDisc(string cd);  // ---- OK
+		string getCodDisc();  // ---- OK
+		void setNomeDisc(string nd);  // ---- OK
+		string getNomeDisc();  // ---- OK
 		
-		bool insereAluno (Aluno* aptr);
+		bool insereAluno (Aluno* aptr); // ---- OK
 		bool deletaAluno (Aluno* aptr);
 		void deletaMatriculas ();
 		
@@ -24,3 +27,5 @@ class Disciplina{
 		void printCompleto();
 		~Disciplina();	 
 };
+
+#endif

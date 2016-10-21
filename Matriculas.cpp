@@ -5,12 +5,16 @@ using namespace std;
 
 #include "Matriculas.h"
 
+Matriculas::Matriculas(AlunoDB *dbalu, DisciplinaDB *dbdis){
+	AlunoDB *dba = dbalu;
+	DisciplinaDB *dbd = dbdis;	
+}
 
 
 bool Matriculas::matricular (string c, string cd){
 	
 	a = dba->getAlunoPtr(c);
-	d = dba->getDisciplinaPtr(cd);
+	d = dbd->getDisciplinaPtr(cd);
 	if((a->insereDisciplina(d)) and (d->insereAluno(a))){
 		cout<<"\nMatricula efetuada com sucesso !!!!";
 	}else{
@@ -18,9 +22,10 @@ bool Matriculas::matricular (string c, string cd){
 	}
 	
 	a->printCompleto();
-	d->printCompleto();	
+//	d->printCompleto();	
 }
 
+/*
 bool Matriculas::cancelar (string c, string cd) {
 	
 	a = dba->getAlunoPtr(c);
@@ -34,4 +39,4 @@ bool Matriculas::cancelar (string c, string cd) {
 	a->printCompleto();
 	d->printCompleto();
 }
-
+*/

@@ -8,13 +8,26 @@
 
 using namespace std;
 
+#include "AlunoDB.h"
+#include "DisciplinaDB.h"
+#include "Matriculas.h"
+
+
 void * ImpMenu(string * pont);
 
 int main(int argc, char** argv) {
 	
+	AlunoDB dbAluno = AlunoDB();
+	DisciplinaDB dbDisc = DisciplinaDB();
+	Matriculas matriculas = Matriculas(&dbAluno, &dbDisc);
+	
+	string cpf, nome, curso, codDisc, nomeDisc;
+	
+	
 	Menus menu;
 	string *menuPrin;
 	int opt1;
+	bool respFun;
 	
 	menuPrin= menu.getMenuMenus();
 	
@@ -39,20 +52,50 @@ int main(int argc, char** argv) {
 				cin>>opt1;
 				switch(opt1){
 					case 1:
-						//cadastrar aluno
+						{//cadastrar aluno ---------- cadastrar aluno ------- cadastrar aluno
+							string nome, cpf, curso;						
+							cout<<"Qual o nome do Aluno ?"<<endl;
+							cin>>nome;
+							cout<<"Qual o CPF do Aluno ?"<<endl;
+							cin>>cpf;
+							cout<<"Qual e o curso ?"<<endl;
+							cin>>curso;
+							
+							respFun = dbAluno.incluir(cpf, nome, curso);
+							
+							if(respFun){
+								cout<<"Aluno adicionado com sucesso"<<endl;
+							}else{
+								cout<<"Falha ao adicionar o Aluno"<<endl;
+							}
 						break;
+						}
 					case 2:
 						//deletar aluno
 						break;
 					case 3:
 						//listar aluno
 						break;
-					case 4:
+					case 5:
 						//voltar;
-						break;
+						{
+							system("cls");
+							menuPrin = menu.getMenuMenus();
+							ImpMenu(menuPrin);
+							cout<<"Digite o numero da opcao desejada"<<endl;
+							cin>>opt1;
+							break;
+						}
 					default:
 						//default é voltar
-						break;
+						{
+							system("cls");
+							menuPrin = menu.getMenuMenus();
+							ImpMenu(menuPrin);	
+							cout<<"Digite o numero da opcao desejada"<<endl;
+							cin>>opt1;							
+							break;
+						}
 				}					
 				break;
 			case 2:
@@ -61,20 +104,47 @@ int main(int argc, char** argv) {
 				cin>>opt1;
 				switch(opt1){
 					case 1:
-						//cadastrar aluno
+						{//cadastrar disciplina ---------- cadastrar disciplina ------- cadastrar disciplina
+							string codD, nomD;						
+							cout<<"Qual o nome da disciplina ?"<<endl;
+							cin>>nomD;
+							cout<<"Qual o codigo da disciplina ?"<<endl;
+							cin>>codD;
+							
+							respFun = dbDisc.incluir(codD, nomD);
+							
+							if(respFun){
+								cout<<"Disciplina adicionada com sucesso"<<endl;
+							}else{
+								cout<<"Falha ao adicionar a disciplina"<<endl;
+							}
 						break;
+						}
 					case 2:
-						//deletar aluno
+						//deletar Disciplina
 						break;
 					case 3:
-						//listar aluno
+						//listar Disciplina
 						break;
 					case 4:
 						//voltar;
-						break;
+						{
+							system("cls");
+							menuPrin = menu.getMenuMenus();
+							ImpMenu(menuPrin);
+							cout<<"Digite o numero da opcao desejada"<<endl;
+							cin>>opt1;
+							break;
+						}
 					default:
-						//default é voltar
-						break;
+						{
+							system("cls");
+							menuPrin = menu.getMenuMenus();
+							ImpMenu(menuPrin);
+							cout<<"Digite o numero da opcao desejada"<<endl;
+							cin>>opt1;
+							break;
+						}
 				}	
 				break;
 			case 3:
@@ -93,21 +163,40 @@ int main(int argc, char** argv) {
 						break;
 					case 4:
 						//voltar;
-						break;
+						{
+							system("cls");
+							menuPrin = menu.getMenuMenus();
+							ImpMenu(menuPrin);
+							cout<<"Digite o numero da opcao desejada"<<endl;
+							cin>>opt1;
+							break;
+						}
 					default:
-						//default é voltar
-						break;
+						{
+							system("cls");
+							menuPrin = menu.getMenuMenus();
+							ImpMenu(menuPrin);
+							cout<<"Digite o numero da opcao desejada"<<endl;
+							cin>>opt1;
+							break;
+						}
 				}		
 				break;
 			case 4:
-				menuPrin = menu.getMenuMenus();
-				ImpMenu(menuPrin);	
-				break;
+				{
+					system("cls");
+					menuPrin = menu.getMenuMenus();
+					ImpMenu(menuPrin);
+					ctn = 0;
+					break;	
+				}
 			default:
-				menuPrin = menu.getMenuMenus();
-				ImpMenu(menuPrin);
-				ctn = 0;
-				break;			
+				{
+					menuPrin = menu.getMenuMenus();
+					ImpMenu(menuPrin);
+					ctn = 0;
+					break;	
+				}
 		}
 	}
 /// FIM DO MENU

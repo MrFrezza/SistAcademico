@@ -1,3 +1,6 @@
+#ifndef DISCIPLINADB_H
+#define DISCIPLINADB_H
+
 #include "Disciplina.h"
 
 using namespace std;
@@ -9,10 +12,14 @@ class DisciplinaDB{
 	public:
 		DisciplinaDB();
 		
-		int exite(string cd);
-		Disciplina* getDisciplina(string cd);
+		int existe(string cd);
+		Disciplina* getDisciplina(string cd);/// -- > ???
 		bool incluir (string cd, string nd);
 		bool excluir (string cd);
 		bool consultar (string cd);
 		void listar ();
+		
+		Disciplina* getDisciplinaPtr(string cd);
 };
+
+#endif
