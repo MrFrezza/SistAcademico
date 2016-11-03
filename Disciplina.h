@@ -20,11 +20,12 @@ class Disciplina{
 		string getNomeDisc();  // ---- OK
 		
 		bool insereAluno (Aluno* aptr); // ---- OK
-		bool deletaAluno (Aluno* aptr);
-		void deletaMatriculas ();
+		bool deletaAluno (Aluno* aptr);// ----- ---- OK
+		void deletaMatriculas (Aluno * ptr);
+		void deletaMatriculas (Disciplina * ptr);
 		
 		void print();
-		void printCompleto();
+		void printCompleto();///// OK
 		~Disciplina();	 
 };
 

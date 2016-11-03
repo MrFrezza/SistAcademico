@@ -19,8 +19,9 @@ class Aluno : public Pessoa {
 		string getCurso();
 		
 		bool insereDisciplina (Disciplina* dptr); // ----- OK
-		bool deleteDisciplina (Disciplina* dptr);
-		void deletaMatriculas ();
+		bool deletaDisciplina (Disciplina* dptr);/// --- OK
+		void deletaMatriculas (Aluno * ptr); /// --- OK
+		
 		
 		void print();
 		void printCompleto();

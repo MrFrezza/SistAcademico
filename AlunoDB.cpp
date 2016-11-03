@@ -15,21 +15,20 @@ int AlunoDB::existe(string c){
 	for(int i = 0; i <10 ; i++){
 		
 		if(a[i] != 0){
-			string cpf = a[i]->getCpf();
 		
-			if(cpf == c){
-				return 1;
+			if(a[i]->getCpf() == c){
+				return i;
 			}
 		}
 	}
-	return 0;
+	return -1;
 }
 
 bool AlunoDB::incluir(string c, string n, string cs){
 	
-	if(existe(c) == 0){
+	if(existe(c) == -1){
 		for(int  i = 0; i < 10; i++){
-			if(a[i] == 0){///////// Verifica se a posição do vetor alunos está vazia	
+			if(a[i] == 0){	
 				a[i] = new Aluno(c, n, cs);		
 				return true;							
 			}
@@ -40,29 +39,57 @@ bool AlunoDB::incluir(string c, string n, string cs){
 }
 
 bool AlunoDB::consultar(string c){/// ------------------------------- MESMO DO LISTA POREM ESPECIFICO DO ALUNO REQUISITADO
-	
-	for(int i = 0; i<10; i++){
-		
-	}
-}
-
-void AlunoDB::listar(){ /// ------------------------------- FALTA EXIBIR DISCIPLINAS ONDE OS ALUNOS ESTÃO CADASTRADOS
 	cout<<"Lista de Alunos no AlunoDB"<<endl<<endl;
 	for(int i = 0; i<10; i++){
-		cout<<"Aluno: "<<a[i]->getNome()<<endl;
+		if(a[i] != 0){
+			if(a[i]->getCpf() == c ){
+				a[i]->printCompleto(); 
+				return true;
+			}		
+		}
+	}
+	return false;
+}
+
+void AlunoDB::listar(){ /// ------------------------------- Lista os aunos e suas respectivas disciplinas
+	cout<<"Lista de Alunos no AlunoDB"<<endl<<endl;
+	for(int i = 0; i<10; i++){
+		if(a[i] == 0){
+			cout<<"-------"<<endl;
+		}else{
+			a[i]->printCompleto(); 
+		}
 	}
 	cout<<endl;
 }
 
- Aluno* AlunoDB::getAlunoPtr(string c){
-	
-	for(int i = 0; i<10; i++){
+Aluno * AlunoDB::getAlunoPtr(string c){
+/*	for(int i = 0; i<10; i++){
 		if(a[i] != 0){
-			if(a[i]->getCpf() == c){
+			if(a[i]->getCpf() == c ){
 				return a[i];
 			}
 		}
 	}
+*/
+int vai = existe(c);
+
+	if(vai > -1){
+		return a[vai];
+	}else{
+		return 0;
+	}
 	
+}
+
+bool AlunoDB::excluir(string c){
+
+	int vai = existe(c);	
+	if(vai > -1){
+		a[vai]->deletaMatriculas(getAlunoPtr(c));
+		a[vai] = 0;	
+		return true;
+	}	
+	return false;
 }
 

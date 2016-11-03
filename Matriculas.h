@@ -18,6 +18,8 @@ class Matriculas {
 		
 		bool matricular (string c, string cd);  // ---- OK
 		bool cancelar (string c, string cd);
+		
+		void verifica (string c, string cd);
 };
 
 #endif

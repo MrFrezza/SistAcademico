@@ -19,10 +19,10 @@ class Menus{
 		void setMenuMenus();
 		
 	private:
-		string menuAluno[5];
-		string menuDisci[4];
-		string menuMatri[4];
-		string menuMenus[4];
+		string menuAluno[6];
+		string menuDisci[5];
+		string menuMatri[5];
+		string menuMenus[5];
 };
 
 #endif 

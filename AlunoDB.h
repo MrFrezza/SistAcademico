@@ -17,7 +17,7 @@ class AlunoDB{
 		bool consultar	(string c);
 		void listar		();
 		
-		Aluno* getAlunoPtr(string c);
+		Aluno * getAlunoPtr(string c);
 		
 	private:
 		Aluno *a[10];
